@@ -1,0 +1,15 @@
+.nav{
+    grid-area: n;
+    /* background-color: rgb(250, 103, 255); */
+    background-color: pink;
+    /* border: 1px solid pink */
+    padding: 20px;
+  
+}
+.item a {
+    color: white;
+    text-decoration: none;
+}
+.item a.activeLink {
+    color: green;
+}

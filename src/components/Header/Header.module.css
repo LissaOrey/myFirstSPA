@@ -1,0 +1,14 @@
+.header {
+    grid-area: h;
+    /* background-color: rgb(146, 0, 110); */
+    background-image: url(https://avatars.mds.yandex.net/get-pdb/403935/795724bd-fcf2-46c5-a60f-7c638090f456/s1200?webp=false);
+    /* background: url(https://im0-tub-ru.yandex.net/i?id=9839204bb005be5d2aef8fdbe2ef73f8&n=13) no-repeat 100% 100%; */
+    /* background: url(https://www.photosteklo.ru/wp-content/uploads/2018/11/0498.jpg) no-repeat 100% 100%; */
+    background-size: cover;
+    border-bottom: 1px solid pink;
+}
+
+.header img {
+    width: 200px;
+    height: 100%;
+}
