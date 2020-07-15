@@ -2,6 +2,7 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import DialogItem from './DialogsItem/DialogsItem';
 import Message from './Messages/Messages';
+import { Redirect } from 'react-router-dom';
 
 const Dialogs = (props) => {
  
@@ -15,7 +16,7 @@ const Dialogs = (props) => {
         { dialogsElements }
       </div>
       <div className={s.messages}>
-        {messagesElements }
+        {messagesElements}
       </div>
     </div>
   )

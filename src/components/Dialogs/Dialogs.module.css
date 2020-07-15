@@ -1,6 +1,6 @@
 .dialogs{
     display: grid;
-    grid-template-columns: 2fr 10fr;
+    grid-template-columns: 3fr 11fr;
     padding: 15px;
 }
 .dialogItems{
@@ -9,6 +9,7 @@
 }
 .dialogItems .active {
     color: rgb(168, 0, 184);
+    padding: 5px;
 }
 .dialog {
 
@@ -19,4 +20,20 @@
 .message{
     padding: 5px;
     border-bottom:  1px dotted  rgb(168, 0, 184);
+}
+.message img{
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.avatar {
+    display: inline;
+}
+.avatar img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
