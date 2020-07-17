@@ -2,7 +2,7 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import DialogItem from './DialogsItem/DialogsItem';
 import Message from './Messages/Messages';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import NewMessage from './Messages/NewMessage';
 
 const Dialogs = (props) => {
@@ -18,7 +18,7 @@ const Dialogs = (props) => {
       </div>
       <div className={s.messages}>
         {messagesElements}
-        <NewMessage />
+        <NewMessage newMessageText={props.state.newMessageText}  addMessage={props.addMessage} updateNewMessageText={props.updateNewMessageText} />
       </div>
     </div>
   )

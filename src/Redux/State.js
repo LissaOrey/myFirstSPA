@@ -8,6 +8,7 @@ let state = {
             {id: 3, message:'It\'s my second post', likesCount: 0},
             {id: 4, message:'It\'s my first post', likesCount: 22}
         ],
+        newPostText: 'it-kamasutra',
     },
     dialogsPage:{
         dialogsData: [
@@ -22,17 +23,17 @@ let state = {
           
         messagesData: [
             {id: 1, message: 'Hi!'},
-            {id: 6, message: 'Hello!'},
+            // {id: 6, message: 'Hello!'},
             {id: 2, message: 'How are you?'},
-            {id: 7, message: 'ok!'},
+            // {id: 7, message: 'ok!'},
             {id: 3, message: 'I cann\'t stop to codeing'},
-            {id: 8, message: 'me too'},
+            // {id: 8, message: 'me too'},
             {id: 4, message: 'I can fly'},
-            {id: 9, message: 'cool'},
+            // {id: 9, message: 'cool'},
             {id: 5, message: 'Yo!'},
-            {id: 10, message: 'Yoyoyo'},
+            // {id: 10, message: 'Yoyoyo'},
         ],
-        
+        newMessageText: 'dratuti',
         // SendMessages: [
         //     {id: 1, smessage: 'Hello!'},
         //     {id: 2, smessage: 'ok!'},
@@ -50,15 +51,32 @@ let state = {
         ],
     }
 }
-export let addPost=(postMessage)=>{
+export let addPost=()=>{
     let newPost = {
         id:5,
-        message: postMessage,
+        message: state.profilePage.newPostText,
         likesCount:0,
-    }
-    // debugger;
+    };
     state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText = '';
     rerenderEntireTree(state);
 };
-
+export let updateNewPostText =(newText)=>{
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+}
+export let addMessage = ()=>{
+    let newMessage = {
+        id:6,
+        message: state.dialogsPage.newMessageText,
+    };
+    state.dialogsPage.messagesData.push(newMessage);
+    state.dialogsPage.newMessageText = '';
+    rerenderEntireTree(state);
+}
+export let updateNewMessageText=(newMessage)=>{
+    state.dialogsPage.newMessageText = newMessage;
+    rerenderEntireTree(state);
+}
+// window.state=state;
 export default state;
