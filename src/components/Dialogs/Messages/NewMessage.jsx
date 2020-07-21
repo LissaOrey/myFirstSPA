@@ -5,12 +5,14 @@ const NewMessage = (props) => {
     let newMessage = React.createRef()
     let sendMessage = () => {
         // alert('hi');
-        props.addMessage();
+        let action = {type: 'ADD-MESSAGE'};
+        props.dispatch(action);
         // newMessage.current.value='';
     }
     let onMessageChange = () =>{
         let message = newMessage.current.value;
-        props.updateNewMessageText(message);
+        let action ={type: 'UPDATE-NEW-MESSAGE-TEXT', newMessage: message}
+        props.dispatch(action);
     }
     return (
         <div>
