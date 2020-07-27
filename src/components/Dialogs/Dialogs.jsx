@@ -4,13 +4,27 @@ import DialogItem from './DialogsItem/DialogsItem';
 import Message from './Messages/Messages';
 // import { Redirect } from 'react-router-dom';
 import NewMessage from './Messages/NewMessage';
+import { addMessageCreator, updateNewMessageTextCreator } from '../../Redux/State';
 
 const Dialogs = (props) => {
+  let state = props.store.getState().dialogsPage;
  
-  let dialogsElements = props.state.dialogsData.map(d => <DialogItem name={d.name} id={d.id} />)
+  let dialogsElements = state.dialogsData.map(d => <DialogItem name={d.name} id={d.id} />);
+  let messagesElements = state.messagesData.map(m => < Message message={m.message} />);
 
-  let messagesElements = props.state.messagesData.map(m => < Message message={m.message} />)
-
+  let newMessageText = state.newMessageBody;
+  let onNewMessageChange =(e)=>{
+    // мы пытаемся избегать ref, поэтому исп такой метод
+    let body = e.target.value;
+    // let action = updateNewMessageTextCreator(message);
+    // props.store.dispatch(action);
+    props.store.dispatch(updateNewMessageTextCreator(body));
+  }
+  let onSendMessageClick =()=>{
+    // let action = addMessageCreator();
+    // props.store.dispatch(action);
+    props.store.dispatch(addMessageCreator());
+  }
   return (
     <div className={s.dialogs}>
       <div className={s.dialogItems}>
@@ -18,7 +32,15 @@ const Dialogs = (props) => {
       </div>
       <div className={s.messages}>
         {messagesElements}
-        <NewMessage newMessageText={props.state.newMessageText} dispatch={props.dispatch} />
+        {/* <NewMessage newMessageText={state.newMessageText} dispatch={props.dispatch} /> */}
+        <div>
+          <div>
+            <textarea onChange={onNewMessageChange} value={newMessageText} placeholder='Enter your message'></textarea>
+          </div>
+          <div>
+            <button onClick={onSendMessageClick}>Send</button>
+          </div>
+        </div>
       </div>
     </div>
   )

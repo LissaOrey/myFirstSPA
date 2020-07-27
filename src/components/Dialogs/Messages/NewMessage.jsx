@@ -1,16 +1,16 @@
 import React from 'react';
 import s from './../Dialogs.module.css';
-import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../../Redux/State';
+import { addMessageCreator, updateNewMessageTextCreator } from '../../../Redux/State';
 
 const NewMessage = (props) => {
     let newMessage = React.createRef()
     let sendMessage = () => {
-        let action = addMessageActionCreator();
+        let action = addMessageCreator();
         props.dispatch(action);
     }
     let onMessageChange = () =>{
         let message = newMessage.current.value;
-        let action = updateNewMessageTextActionCreator(message)
+        let action = updateNewMessageTextCreator(message)
         props.dispatch(action);
     }
     return (
@@ -20,4 +20,4 @@ const NewMessage = (props) => {
         </div>
     )
 }
-export default NewMessage;
+// export default NewMessage;
