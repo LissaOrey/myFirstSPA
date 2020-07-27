@@ -3,8 +3,8 @@ import s from './Dialogs.module.css';
 import DialogItem from './DialogsItem/DialogsItem';
 import Message from './Messages/Messages';
 // import { Redirect } from 'react-router-dom';
-import NewMessage from './Messages/NewMessage';
-import { addMessageCreator, updateNewMessageTextCreator } from '../../Redux/State';
+// import NewMessage from './Messages/NewMessage';
+import { addMessageCreator, updateNewMessageTextCreator } from '../../Redux/dialogs-reducer';
 
 const Dialogs = (props) => {
   let state = props.store.getState().dialogsPage;
