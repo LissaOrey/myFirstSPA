@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import store from './Redux/State';
+// import store from './Redux/Store';
+import store from './Redux/redux-store';
 
 let rerenderEntireTree=(state)=>{
   ReactDOM.render(
@@ -13,11 +14,14 @@ let rerenderEntireTree=(state)=>{
     </BrowserRouter>,
     document.getElementById('root')
   );
-}
+} 
 
 rerenderEntireTree(store.getState());
 
-store.subscribe(rerenderEntireTree);
+store.subscribe( ()=>{
+  let state = store.getState();
+  rerenderEntireTree(state);
+} );
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

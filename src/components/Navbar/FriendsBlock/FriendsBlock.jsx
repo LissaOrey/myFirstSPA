@@ -1,7 +1,7 @@
 import React from 'react';
-import s from './Friends.module.css';
+import s from './FriendsBlock.module.css';
 
-const Friends = (props) => {
+const FriendsBlock = (props) => {
     return (
         // <div className={s.friends}>
             <div className={s.friendBlock}>
@@ -11,4 +11,4 @@ const Friends = (props) => {
         // </div>
     )
 }
-export default Friends;
+export default FriendsBlock;

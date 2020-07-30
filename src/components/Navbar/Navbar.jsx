@@ -1,11 +1,12 @@
 import React from 'react';
 import s from './Navbar.module.css';
 import { NavLink } from 'react-router-dom';
-import Friends from './Friends/Friends';
+import FriendsBlock from './FriendsBlock/FriendsBlock';
 
 
 const Navbar = (props) => {
-    let friendsArr = props.state.friends.map(f => <Friends name={f.name} id={f.id} src={f.src} />)
+
+    let friendsArr = props.state.friends.map(f => <FriendsBlock name={f.name} id={f.id} src={f.src} />)
 
     return (
         <nav className={s.nav}>
@@ -24,10 +25,12 @@ const Navbar = (props) => {
             <div className={s.item}>
                 <NavLink to='/settings' activeClassName={s.activeLink}>Settings</NavLink>
             </div>
-            <div className={s.friendsBlock}>
+            <div className={s.item}>
                 <div>
                     <NavLink to='/friends' activeClassName={s.activeLink}>Friends</NavLink>
                 </div>
+            </div>
+            <div className={s.friendsBlock}>
                 {friendsArr}
             </div>
         </nav>

@@ -15,6 +15,8 @@
     color: green;
 }
 .friendsBlock {
+    display: inline-block;
+    margin: 0;
     color: rgb(122, 2, 122);
     border: 1px solid white;
     font-size: 18px;
@@ -22,4 +24,10 @@
 }
 .friendsBlock a.activeLink {
     color: green;
+}
+.friendsBlock img {
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
 }

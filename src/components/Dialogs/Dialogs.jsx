@@ -8,7 +8,7 @@ import { addMessageCreator, updateNewMessageTextCreator } from '../../Redux/dial
 
 const Dialogs = (props) => {
   let state = props.store.getState().dialogsPage;
- 
+
   let dialogsElements = state.dialogsData.map(d => <DialogItem name={d.name} id={d.id} />);
   let messagesElements = state.messagesData.map(m => < Message message={m.message} />);
 
@@ -35,7 +35,9 @@ const Dialogs = (props) => {
         {/* <NewMessage newMessageText={state.newMessageText} dispatch={props.dispatch} /> */}
         <div>
           <div>
-            <textarea onChange={onNewMessageChange} value={newMessageText} placeholder='Enter your message'></textarea>
+            <textarea placeholder='Enter your message' 
+                      onChange={onNewMessageChange} 
+                      value={newMessageText}  ></textarea>
           </div>
           <div>
             <button onClick={onSendMessageClick}>Send</button>
