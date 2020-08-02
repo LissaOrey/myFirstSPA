@@ -2,12 +2,10 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import DialogItem from './DialogsItem/DialogsItem';
 import Message from './Messages/Messages';
-// import { Redirect } from 'react-router-dom';
 // import NewMessage from './Messages/NewMessage';
-import { addMessageCreator, updateNewMessageTextCreator } from '../../Redux/dialogs-reducer';
 
 const Dialogs = (props) => {
-  let state = props.store.getState().dialogsPage;
+  let state = props.dialogsPage;
 
   let dialogsElements = state.dialogsData.map(d => <DialogItem name={d.name} id={d.id} />);
   let messagesElements = state.messagesData.map(m => < Message message={m.message} />);
@@ -16,14 +14,10 @@ const Dialogs = (props) => {
   let onNewMessageChange =(e)=>{
     // мы пытаемся избегать ref, поэтому исп такой метод
     let body = e.target.value;
-    // let action = updateNewMessageTextCreator(message);
-    // props.store.dispatch(action);
-    props.store.dispatch(updateNewMessageTextCreator(body));
+    props.updateNewMessageTextCreator(body);
   }
   let onSendMessageClick =()=>{
-    // let action = addMessageCreator();
-    // props.store.dispatch(action);
-    props.store.dispatch(addMessageCreator());
+    props.addMessageCreator();
   }
   return (
     <div className={s.dialogs}>
