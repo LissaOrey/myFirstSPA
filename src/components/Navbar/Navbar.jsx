@@ -5,8 +5,9 @@ import FriendsBlock from './FriendsBlock/FriendsBlock';
 
 
 const Navbar = (props) => {
-
-    let friendsArr = props.state.friends.map(f => <FriendsBlock name={f.name} id={f.id} src={f.src} />)
+    let state = props.sidebar
+    // let friendsArr = props.state.friends.map(f => <FriendsBlock name={f.name} id={f.id} src={f.src} />)
+    let friendsArr = state.friends.map(f => <FriendsBlock name={f.name} id={f.id} src={f.src} />)
 
     return (
         <nav className={s.nav}>
