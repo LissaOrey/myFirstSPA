@@ -19,6 +19,7 @@ const profileReducer = (state=initialState, action)=>{
                 likesCount:0,
             };
             //TODO: поле ввода не очищается, узнать в чем причина и исправить
+            //дело былов том, что не было заполненго вэлъю
             state.posts.push(newPost);
             state.newPostText = '';
             return state;
