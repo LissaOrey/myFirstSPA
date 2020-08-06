@@ -17,19 +17,19 @@ import { connect } from 'react-redux';
         <MyPosts addPost={addPost} updateNewPostTextCreator={onPostChange} posts={state.profilePage.posts} newPostText={state.profilePage.newPostText} />
     )
 }*/
-let mapStateToProps =(state)=>{
+const mapStateToProps =(state)=>{
     return{
         posts: state.profilePage.posts,
         newPostText: state.profilePage.newPostText,
     }
 };
-let mapDispatchToProps =(dispatch)=>{
+const mapDispatchToProps =(dispatch)=>{
     return{
         addPost: ()=>{
             // let action = addPostCreator();
             dispatch(addPostCreator());
         },
-        onPostChange: (text)=>{
+        updateNewPostText: (text)=>{
             // let action =updateNewPostTextCreator(text) ;
             dispatch(updateNewPostTextCreator(text));
         }

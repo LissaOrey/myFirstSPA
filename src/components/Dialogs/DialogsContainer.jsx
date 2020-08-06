@@ -24,8 +24,8 @@ let mapStateToProps=(state)=>{
 };
 let mapDispatchToProps=(dispatch)=>{
   return {
-    onNewMessageChange: (body)=> {dispatch(updateNewMessageTextCreator(body))},
-    onSendMessageClick: ()=>{dispatch(addMessageCreator())}
+    updateNewMessageBody: (body)=> {dispatch(updateNewMessageTextCreator(body))},
+    sendMessage: ()=>{dispatch(addMessageCreator())}
   }
   
 }

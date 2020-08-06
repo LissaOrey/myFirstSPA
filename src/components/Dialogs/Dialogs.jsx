@@ -11,13 +11,15 @@ const Dialogs = (props) => {
   let messagesElements = state.messagesData.map(m => < Message message={m.message} />);
 
   let newMessageText = state.newMessageBody;
+
   let onNewMessageChange =(e)=>{
     // мы пытаемся избегать ref, поэтому исп такой метод
     let body = e.target.value;
-    props.updateNewMessageTextCreator(body);
+    props.updateNewMessageBody(body);
   }
+
   let onSendMessageClick =()=>{
-    props.addMessageCreator();
+    props.sendMessage();
   }
   return (
     <div className={s.dialogs}>

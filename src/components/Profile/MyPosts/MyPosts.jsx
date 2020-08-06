@@ -13,8 +13,7 @@ const MyPosts = (props) => {
     }
     let onPostChange=()=>{
         let text = newPostElement.current.value;
-        props.updateNewPostTextCreator(text);
-        // props.onPostChange(text);
+        props.updateNewPostText(text);
     }
     return (
         <div className={s.postsBlock}>

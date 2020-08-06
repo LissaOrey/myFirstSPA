@@ -12,7 +12,7 @@ let initialState = {
 };
 const profileReducer = (state=initialState, action)=>{
     switch (action.type) {
-        case ADD_POST:
+        case ADD_POST:{
             let newPost = {
                 id:5,
                 message: state.newPostText,
@@ -20,12 +20,17 @@ const profileReducer = (state=initialState, action)=>{
             };
             //TODO: поле ввода не очищается, узнать в чем причина и исправить
             //дело былов том, что не было заполненго вэлъю
-            state.posts.push(newPost);
-            state.newPostText = '';
-            return state;
-        case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.newText;
-            return state;
+            let stateCopy = {...state};
+            stateCopy.posts = [...state.posts];
+            stateCopy.posts.push(newPost);
+            stateCopy.newPostText = '';
+            return stateCopy;
+        };
+        case UPDATE_NEW_POST_TEXT:{
+            let stateCopy = {...state}
+            stateCopy.newPostText = action.newText;
+            return stateCopy;
+        };
         default:
             return state;
     }
