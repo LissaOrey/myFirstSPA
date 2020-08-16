@@ -1,0 +1,24 @@
+.usersPhoto {
+    width: 30%;
+    height: 30%;
+    border-radius: 45%;
+}
+div.leftBlock {
+    display: inline-block;
+    
+    border: 1px solid fuchsia;
+    width: 20%;
+}
+div.rightBlock {
+    display: inline-block;
+    border: 1px solid fuchsia;
+    width: 60%;
+}
+div.userBlocks {
+    display: inline-block;
+    border: 1px solid fuchsia;
+    width: 49%;
+}
+span {
+    display: inline-block;
+}
