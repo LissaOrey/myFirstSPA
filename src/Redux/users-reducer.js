@@ -65,6 +65,7 @@ const usersReducer = (state=initialState, action)=>{
                 })
             }
         case SET_USERS:{
+            debugger
             return {
                 ...state, users: [...state.users, ...action.users]
                 //...action.users не понимаю эту часть кода
