@@ -3,6 +3,9 @@
     height: 100px;
     border-radius: 45%;
 }
+.selectedPage{
+    font-weight: bold;
+}
 div.leftBlock {
     display: inline-block;
     
