@@ -4,3 +4,7 @@ img {
 .descriptionBlock{
     padding: 10px;
 }
+.photo {
+    width: 300px;
+    float: left;
+}
