@@ -13,6 +13,16 @@ export const usersAPI ={
             return response.data;
         })
     },
+    unfollow(userId) {
+        return instance.delete(`follow/${userId}`).then(response=>{
+            return response.data;
+        })
+    },
+    follow(userId) {
+        return instance.post(`follow/${userId}`).then(response=>{
+            return response.data;
+        })
+    }
 };
 export const authAPI ={
     getAuthMe() {
@@ -26,18 +36,6 @@ export const profileAPI ={
         return instance.get(`profile/`+userId)
     },
 };
-export const followAPI ={
-    unfollow(u) {
-        return instance.delete(`follow/${u.id}`).then(response=>{
-            return response.data;
-        })
-    },
-    follow(u) {
-        return instance.post(`follow/${u.id}`).then(response=>{
-            return response.data;
-        })
-    }
-}
 
 
 
