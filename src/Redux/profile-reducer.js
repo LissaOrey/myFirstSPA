@@ -43,10 +43,6 @@ export const setUserProfile =(profile)=>({type: SET_USER_PROFILE, profile});
 
 export const getUserProfile =(userId)=>{
     return (dispatch)=>{
-        // let userId = this.props.match.params.userId;
-        // if(!userId){
-            // userId = '2'
-        // }
         profileAPI.getUserProfile(userId).then(response => {
             dispatch(setUserProfile(response.data));
         })

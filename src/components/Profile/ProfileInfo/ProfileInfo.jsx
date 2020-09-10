@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './ProfileInfo.module.css';
 import Preloader from '../../common/Preloader/Preloader';
+import userPhoto from '../../../assets/images/user.png'
 
 const ProfileInfo = (props) => {
     if(!props.profile){
@@ -13,7 +14,7 @@ const ProfileInfo = (props) => {
                 <img src='https://skinali-market.ru/upload/resize_cache/iblock/dcd/1920_359_156420db5d35cfb82f16501d0f4565d1d/dcd87e33b7defeb69dd3df237e863faa.jpg' />
             </div>
             <div className={s.descriptionBlock}>
-                <img src={props.profile.photos.large}  className={s.photo} />
+                <img src={props.profile.photos.large != null ? props.profile.photos.large : userPhoto} className={s.photo} />
                 ava+ info
                 <div>
                     {/* //TODO: здесь потом сделать все с помощью флексбокса или гридов */}
