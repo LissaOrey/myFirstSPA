@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './ProfileInfo.module.css';
+// import s from './ProfileInfo.module.css';
 
 
 class ProfileStatus extends React.Component {
@@ -7,31 +7,31 @@ class ProfileStatus extends React.Component {
         editMode: false,
         status: this.props.status
     }
-    activateEditMode=()=> {
+    activateEditMode = () => {
         this.setState({
             editMode: true
         });
     };
-    deactivateEditMode=()=> {
+    deactivateEditMode = () => {
         this.setState({
             editMode: false
         });
-        
+        // debugger
         this.props.updateStatus(this.state.status)
     };
-    onStatusChange=(e)=>{
+    onStatusChange = (e) => {
         this.setState({
             status: e.currentTarget.value
         });
         // this.props.updateStatus(this.state.status)
-        
+
 
     }
     //!где-то есть ошибка изза чего в статус приходит объект,  а не статус
     //!пофиксить чуть позже т.к. доступ к апи запросам временно закрыт
-    componentDidUpdate(prevProps, prevState){
+    componentDidUpdate(prevProps, prevState) {
         // debugger
-        if(prevProps.status !== this.props.status){
+        if (prevProps.status !== this.props.status) {
             this.setState({
                 status: this.props.status
             })

@@ -5,7 +5,7 @@ import userPhoto from '../../../assets/images/user.png'
 import ProfileStatus from './ProfileStatus';
 
 const ProfileInfo = (props) => {
-    if(!props.profile){
+    if (!props.profile) {
         return <Preloader />
     }
     return (
@@ -16,11 +16,11 @@ const ProfileInfo = (props) => {
             </div>
             <div className={s.descriptionBlock}>
                 <img src={props.profile.photos.large != null ? props.profile.photos.large : userPhoto} className={s.photo} />
-                <ProfileStatus status={props.status} updateStatus={props.updateStatus}  />
+                <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
                 ava+ info
                 <div>
                     {/* //TODO: здесь потом сделать все с помощью флексбокса или гридов */}
-                    {/*<table className='a'> 
+                    <table className='a'>
                         <tr>
                             <td>Name:</td>
                             <td>{props.profile.fullName}</td>
@@ -54,7 +54,7 @@ const ProfileInfo = (props) => {
                         <tr>
                             <td>mainLink: {props.profile.contacts.mainLink}</td>
                         </tr>
-    </table>*/}
+                    </table>
                 </div>
             </div>
         </div>
