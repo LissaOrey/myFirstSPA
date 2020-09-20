@@ -20,7 +20,7 @@ const Users =(props)=>{
                     return <span className={props.currentPage === p && style.selectedPage } onClick={()=>{props.onPageChanged(p)}}>-{p}</span>
                 })}
                 {
-                    props.users.map(u => <div key={u.id}>
+                    props.users.map(u =>  <div key={u.id}>
                         <div className={style.leftBlock}>
                             <div>
                                 <NavLink to={'/profile/'+u.id}>
@@ -29,8 +29,9 @@ const Users =(props)=>{
                             </div>
                             <div>
                                 {u.followed
-                                    
+                                
                                     ? <button disabled={props.followingInProgress.some(id=> id===u.id)} onClick={() => {
+
                                         props.unfollow(u.id)
                                     }} >unfollow</button>
 

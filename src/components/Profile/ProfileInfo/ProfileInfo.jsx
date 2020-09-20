@@ -5,6 +5,7 @@ import userPhoto from '../../../assets/images/user.png'
 import ProfileStatus from './ProfileStatus';
 
 const ProfileInfo = (props) => {
+//    debugger
     if (!props.profile) {
         return <Preloader />
     }

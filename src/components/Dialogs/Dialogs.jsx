@@ -2,6 +2,7 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import DialogItem from './DialogsItem/DialogsItem';
 import Message from './Messages/Messages';
+import { reduxForm, Field } from 'redux-form';
 // import NewMessage from './Messages/NewMessage';
 
 const Dialogs = (props) => {
@@ -10,26 +11,19 @@ const Dialogs = (props) => {
   let dialogsElements = state.dialogsData.map(d => <DialogItem name={d.name} key={d.id} id={d.id} />);
   let messagesElements = state.messagesData.map(m => < Message message={m.message} key={m.id} />);
 
-  let newMessageText = state.newMessageBody;
-
-  let onNewMessageChange =(e)=>{
-    // мы пытаемся избегать ref, поэтому исп такой метод
-    let body = e.target.value;
-    props.updateNewMessageBody(body);
-  }
-
-  let onSendMessageClick =()=>{
-    props.sendMessage();
+  let addMessage = (dataForm) => {
+    props.sendMessage(dataForm.addMessageForm)
   }
   return (
     <div className={s.dialogs}>
       <div className={s.dialogItems}>
-        { dialogsElements }
+        {dialogsElements}
       </div>
       <div className={s.messages}>
         {messagesElements}
+        <DialogMessageReduxForm onSubmit={addMessage} />
         {/* <NewMessage newMessageText={state.newMessageText} dispatch={props.dispatch} /> */}
-        <div>
+        {/* <div>
           <div>
             <textarea placeholder='Enter your message' 
                       onChange={onNewMessageChange} 
@@ -38,9 +32,22 @@ const Dialogs = (props) => {
           <div>
             <button onClick={onSendMessageClick}>Send</button>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )
 }
+const addMessageForm = (props) => {
+  return <div>
+    <form onSubmit={props.handleSubmit} >
+      <div>
+        <Field placeholder='Enter your text' name='addMessageForm' component='textarea' />
+      </div>
+      <div>
+        <button>Send</button>
+      </div>
+    </form>
+  </div>
+}
+export const DialogMessageReduxForm = reduxForm({ form: 'addMessageForm' })(addMessageForm)
 export default Dialogs;

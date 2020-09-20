@@ -18,14 +18,12 @@ class ProfileStatus extends React.Component {
         });
         // debugger
         this.props.updateStatus(this.state.status)
+        // this.props.updateStatus(this.state.status)
     };
     onStatusChange = (e) => {
         this.setState({
             status: e.currentTarget.value
         });
-        // this.props.updateStatus(this.state.status)
-
-
     }
     //!где-то есть ошибка изза чего в статус приходит объект,  а не статус
     //!пофиксить чуть позже т.к. доступ к апи запросам временно закрыт

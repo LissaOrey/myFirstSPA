@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Users from './Users';
 import { unfollowSuccess, follow,unfollow, followSuccess, toggleIsFollowingProgress, getUsers, setCurrentPage, } from '../../Redux/users-reducer';
 import Preloader from '../common/Preloader/Preloader';
+import { compose } from 'redux';
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -35,6 +36,7 @@ class UsersContainer extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
+        friends: state.usersPage.friends,
         users: state.usersPage.users,
         pageSize: state.usersPage.pageSize,
         usersTotalCount: state.usersPage.usersTotalCount,
