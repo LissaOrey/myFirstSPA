@@ -13,11 +13,11 @@ const Users =(props)=>{
         for (let i = 1; i <= pageCount; i++) {
             pages.push(i)
         };
-        
+         //!при использовании мап нужно всегда добавлять кей
         return (
             <div>
                 {pages.map(p=>{
-                    return <span className={props.currentPage === p && style.selectedPage } onClick={()=>{props.onPageChanged(p)}}>-{p}</span>
+                    return <span key={p.id} className={props.currentPage === p && style.selectedPage } onClick={()=>{props.onPageChanged(p)}}>-{p}</span>
                 })}
                 {
                     props.users.map(u =>  <div key={u.id}>

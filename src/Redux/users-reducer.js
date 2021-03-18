@@ -12,7 +12,7 @@ const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS';
 
 let initialState = {
     users: [],
-    pageSize: 20,
+    pageSize: 50,
     usersTotalCount: 0,
     currentPage: 1,
     isFetching: false,
@@ -22,6 +22,7 @@ let initialState = {
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
         case FOLLOW:
+            // !при использовании мап нужно всегда добавлять кей
             return {
                 ...state, users: state.users.map(u => {
                     if (u.id === action.userId) {
@@ -34,6 +35,8 @@ const usersReducer = (state = initialState, action) => {
             }
         case UNFOLLOW:
             return {
+                //!при использовании мап нужно всегда добавлять кей
+
                 ...state, users: state.users.map(u => {
                     if (u.id === action.userId) {
                         return {
@@ -50,6 +53,8 @@ const usersReducer = (state = initialState, action) => {
         }
         case SET_FRIENDS: {//get
             return {
+                //!при использовании мап нужно всегда добавлять кей
+
                 ...state, friends: state.users.map(u => {
                     if (u.followed === true) {
                         return {
@@ -119,7 +124,7 @@ export const follow = (userId) => {
     return (dispatch) => {
         dispatch(toggleIsFollowingProgress(true, userId));
         usersAPI.follow(userId).then(data => {
-            if (data.resultCode == 0) {
+            if (data.resultCode === 0) {
                 debugger
                 dispatch(followSuccess(userId))
             }

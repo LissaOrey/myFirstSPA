@@ -6,6 +6,7 @@ import FriendsBlock from './FriendsBlock/FriendsBlock';
 
 const Navbar = (props) => {
     let state = props.sidebar
+    //!при использовании мап нужно всегда добавлять кей
     // let friendsArr = props.state.friends.map(f => <FriendsBlock name={f.name} id={f.id} src={f.src} />)
     let friendsArr = state.friends.map(f => <FriendsBlock name={f.name} id={f.id} key={f.id} src={f.src} />)
 

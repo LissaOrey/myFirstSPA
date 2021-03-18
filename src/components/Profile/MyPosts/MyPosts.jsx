@@ -5,6 +5,7 @@ import { DialogMessageReduxForm } from '../../Dialogs/Dialogs';
 import {addPost } from '../../../Redux/profile-reducer';
 
 const MyPosts = (props) => {
+    //!при использовании мап нужно всегда добавлять кей
     let postsElements = 
         props.posts.map(p => <Post message={p.message} key={p.id} likesCount={p.likesCount} />
         )

@@ -7,6 +7,7 @@ import { reduxForm, Field } from 'redux-form';
 
 const Dialogs = (props) => {
   let state = props.dialogsPage;
+//!при использовании мап нужно всегда добавлять кей
 
   let dialogsElements = state.dialogsData.map(d => <DialogItem name={d.name} key={d.id} id={d.id} />);
   let messagesElements = state.messagesData.map(m => < Message message={m.message} key={m.id} />);
