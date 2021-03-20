@@ -5,3 +5,8 @@
 .error{
     color:red;
 } 
+.formError{
+    color: tomato;
+    border:1px solid fuchsia;
+
+}
