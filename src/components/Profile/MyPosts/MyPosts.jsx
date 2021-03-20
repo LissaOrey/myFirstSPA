@@ -1,8 +1,7 @@
 import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
-import { DialogMessageReduxForm } from '../../Dialogs/Dialogs';
-import {addPost } from '../../../Redux/profile-reducer';
+import { PostForm } from '../../ReduxForms/PostForm';
 
 const MyPosts = (props) => {
     //!при использовании мап нужно всегда добавлять кей
@@ -11,13 +10,13 @@ const MyPosts = (props) => {
         )
     
     let adddPost =(dataForm)=>{
-        props.addPost(dataForm.addMessageForm)
+        props.addPost(dataForm.addPost)
     }
     return (
         <div className={s.postsBlock}>
             <h3>My posts</h3>
             <div>
-                <DialogMessageReduxForm onSubmit={adddPost} /> 
+                <PostForm onSubmit={adddPost} /> 
                 {/* <div>
                     <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText} />
                 </div>

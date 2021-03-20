@@ -27,7 +27,7 @@ const profileReducer = (state=initialState, action)=>{
             };
             //TODO: поле ввода не очищается, узнать в чем причина и исправить
             // дело былов том, что не было заполненго вэлъю
-            return {...state, newPostText: '', posts: [...state.posts, newPost] };
+            return {...state, newPostText: '', posts: [newPost, ...state.posts ] };
         };
         // case UPDATE_NEW_POST_TEXT:{
         //     return {...state, newPostText: action.newText}
