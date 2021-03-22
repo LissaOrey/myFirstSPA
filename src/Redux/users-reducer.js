@@ -3,10 +3,8 @@ import { usersAPI } from "../api/api";
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS';
-const SET_FRIENDS = 'SET_FRIENDS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_USERS_TOTAL_COUNT = 'SET_USERS_TOTAL_COUNT';
-const SET_FRIENDS_TOTAL_COUNT = 'SET_FRIENDS_TOTAL_COUNT';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS';
 
@@ -51,28 +49,6 @@ const usersReducer = (state = initialState, action) => {
                 ...state, users: action.users
             }
         }
-        case SET_FRIENDS: {//get
-            return {
-                //!при использовании мап нужно всегда добавлять кей
-
-                ...state, friends: state.users.map(u => {
-                    if (u.followed === true) {
-                        return {
-                            ...state, friends: u.id,
-                        }
-                    }
-                    return u;
-                }), 
-                
-            }
-            
-        }
-        // case GET_FRIENDS: {
-        //     return {
-        //         ...state, friends: action.friends
-        //     }
-            
-        // }
         case SET_CURRENT_PAGE: {
             return {
                 ...state, currentPage: action.currentPage
@@ -104,7 +80,6 @@ const usersReducer = (state = initialState, action) => {
 export const followSuccess = (userId) => ({ type: FOLLOW, userId });
 export const unfollowSuccess = (userId) => ({ type: UNFOLLOW, userId });
 export const setUsers = (users) => ({ type: SET_USERS, users });
-export const setFriends = (friends) => ({ type: SET_FRIENDS, friends });
 export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage });
 export const setTotalUsersCount = (usersTotalCount) => ({ type: SET_USERS_TOTAL_COUNT, count: usersTotalCount });
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching });

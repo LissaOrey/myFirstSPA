@@ -9,6 +9,7 @@ const ProfileInfo = (props) => {
     if (!props.profile) {
         return <Preloader />
     }
+    // debugger
     return (
         <div>
             <div>
@@ -17,7 +18,8 @@ const ProfileInfo = (props) => {
             </div>
             <div className={s.descriptionBlock}>
                 <img src={props.profile.photos.large != null ? props.profile.photos.large : userPhoto} className={s.photo} />
-                <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
+                {props.profile.userId ===props.autorizedUserId ?
+                <ProfileStatus status={props.status} updateStatus={props.updateStatus} /> : <div>{props.status}</div>}
                 ava+ info
                 <div>
                     {/* //TODO: здесь потом сделать все с помощью флексбокса или гридов */}
