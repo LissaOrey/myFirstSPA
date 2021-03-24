@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Users from './Users';
-import { unfollowSuccess, follow,unfollow, followSuccess, toggleIsFollowingProgress, getUsers, setCurrentPage, } from '../../Redux/users-reducer';
+import {getPageSize, getUsersTotalCount, getCurrentPage, getIsFetching, getFollowingInProgress, getUsers} from './../../Redux/usersSelectors';
+import { unfollowSuccess, follow,unfollow, followSuccess, toggleIsFollowingProgress, requestUsers, setCurrentPage } from '../../Redux/users-reducer';
 import Preloader from '../common/Preloader/Preloader';
 // import { compose } from 'redux';
 
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.getUsers(this.props.currentPage,this.props.pageSize);
+        this.props.requestUsers(this.props.currentPage,this.props.pageSize);
     }
     onPageChanged = (pageNumber) => {
         this.props.getUsers(pageNumber,this.props.pageSize);
@@ -37,13 +38,13 @@ class UsersContainer extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        friends: state.usersPage.friends,
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        usersTotalCount: state.usersPage.usersTotalCount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        followingInProgress: state.usersPage.followingInProgress,
+        // users: getUsers(state),
+        users: getUsers(state),
+        pageSize: getPageSize(state),
+        usersTotalCount: getUsersTotalCount(state),
+        currentPage: getCurrentPage(state),
+        isFetching: getIsFetching(state),
+        followingInProgress: getFollowingInProgress(state),
     }
 };
 // let mapDispatchToProps = (dispatch) => {
@@ -72,7 +73,7 @@ export default connect(mapStateToProps, {
     unfollowSuccess,followSuccess,
     setCurrentPage,
      toggleIsFollowingProgress,
-    getUsers, follow, unfollow,
+     requestUsers, follow, unfollow,
 })(UsersContainer);
 // const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(Users);
 
