@@ -2,7 +2,7 @@ import React from 'react';
 import s from './ProfileInfo.module.css';
 import Preloader from '../../common/Preloader/Preloader';
 import userPhoto from '../../../assets/images/user.png'
-import ProfileStatus from './ProfileStatus';
+import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 
 const ProfileInfo = (props) => {
 //    debugger
@@ -19,7 +19,7 @@ const ProfileInfo = (props) => {
             <div className={s.descriptionBlock}>
                 <img src={props.profile.photos.large != null ? props.profile.photos.large : userPhoto} className={s.photo} />
                 {props.profile.userId ===props.autorizedUserId ?
-                <ProfileStatus status={props.status} updateStatus={props.updateStatus} /> : <div>{props.status}</div>}
+                <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} /> : <div>{props.status}</div>}
                 ava+ info
                 <div>
                     {/* //TODO: здесь потом сделать все с помощью флексбокса или гридов */}
